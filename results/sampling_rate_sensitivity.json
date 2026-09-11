@@ -1,0 +1,58 @@
+{
+  "excluded_subjects": [
+    100
+  ],
+  "reason": "Non-160-Hz EDF headers found in development-only audit; no score-based exclusion",
+  "selection_unchanged": true,
+  "summary": {
+    "trials": 1305,
+    "subjects": 29,
+    "accuracy": 0.542528735632184,
+    "balanced_accuracy": 0.5421018874839656,
+    "mean_subject_balanced_accuracy": 0.5437382769654133,
+    "subject_bootstrap_95ci": [
+      0.514000700542586,
+      0.5753908557085093
+    ],
+    "confusion_matrix_left_right": [
+      [
+        377,
+        286
+      ],
+      [
+        311,
+        331
+      ]
+    ],
+    "mean_fold_train_subject_balanced_accuracy": 0.6652300925812268,
+    "unflagged_coverage": 0.23295019157088123,
+    "unflagged": {
+      "trials": 304,
+      "subjects": 14,
+      "subjects_with_both_classes": 12,
+      "subjects_without_both_classes": [
+        14,
+        82
+      ],
+      "accuracy": 0.5625,
+      "balanced_accuracy": 0.5596846846846847,
+      "mean_subject_balanced_accuracy": 0.5629434949557105,
+      "subject_bootstrap_95ci": [
+        0.49672592332676535,
+        0.6346852364683246
+      ],
+      "confusion_matrix_left_right": [
+        [
+          104,
+          52
+        ],
+        [
+          81,
+          67
+        ]
+      ]
+    },
+    "subjects_with_both_classes": 29,
+    "subjects_without_both_classes": []
+  }
+}

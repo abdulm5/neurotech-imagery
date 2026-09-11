@@ -1,0 +1,51 @@
+{
+  "trials": 1341,
+  "subjects": 30,
+  "accuracy": 0.5078299776286354,
+  "balanced_accuracy": 0.5,
+  "mean_subject_balanced_accuracy": 0.5,
+  "subject_bootstrap_95ci": [
+    0.5,
+    0.5
+  ],
+  "confusion_matrix_left_right": [
+    [
+      681,
+      0
+    ],
+    [
+      660,
+      0
+    ]
+  ],
+  "mean_fold_train_subject_balanced_accuracy": 0.5,
+  "unflagged_coverage": 0.226696495152871,
+  "unflagged": {
+    "trials": 304,
+    "subjects": 14,
+    "subjects_with_both_classes": 12,
+    "subjects_without_both_classes": [
+      14,
+      82
+    ],
+    "accuracy": 0.5131578947368421,
+    "balanced_accuracy": 0.5,
+    "mean_subject_balanced_accuracy": 0.5,
+    "subject_bootstrap_95ci": [
+      0.5,
+      0.5
+    ],
+    "confusion_matrix_left_right": [
+      [
+        156,
+        0
+      ],
+      [
+        148,
+        0
+      ]
+    ]
+  },
+  "subjects_with_both_classes": 30,
+  "subjects_without_both_classes": []
+}

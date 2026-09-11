@@ -1,0 +1,13 @@
+{
+  "sfreq": 160,
+  "tmin": 1.0,
+  "tmax": 4.0,
+  "band": [
+    8,
+    30
+  ],
+  "filter_order": 4,
+  "padding_seconds": 1,
+  "high_amplitude_volts": 0.0002,
+  "flat_peak_to_peak_volts": 1e-12
+}

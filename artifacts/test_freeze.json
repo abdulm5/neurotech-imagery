@@ -1,0 +1,14 @@
+{
+  "model_sha256": "9bcd311dda91bda37cce7242270edcb9ad0f406fd1e55ae24b30586cf5f7b1af",
+  "timestamp_utc": "2026-09-11T07:12:49.201394+00:00",
+  "selection": {
+    "selected_model": "spectral",
+    "rule": "CSP only if mean subject balanced accuracy exceeds spectral by at least 0.01",
+    "development_scores": {
+      "spectral": 0.5334117573248008,
+      "csp": 0.5326208513708514
+    },
+    "test_evaluated": false,
+    "seed": 20260911
+  }
+}

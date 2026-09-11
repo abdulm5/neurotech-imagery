@@ -1,0 +1,23 @@
+grouped_spectral: 0.533
+grouped_csp: 0.533
+random_spectral: 0.513
+later_run_spectral: 0.578
+random_csp: 0.473
+later_run_csp: 0.506
+grouped_majority: 0.500
+grouped_metadata: 0.498
+grouped_standard_rate_sensitivity: 0.544
+Permutation 10/100
+Permutation 20/100
+Permutation 30/100
+Permutation 40/100
+Permutation 50/100
+Permutation 60/100
+Permutation 70/100
+Permutation 80/100
+Permutation 90/100
+Permutation 100/100
+Prepared development_central: 1341 valid trials
+grouped_central: 0.544
+Prepared development_occipital: 1341 valid trials
+grouped_occipital: 0.539

@@ -1,0 +1,16 @@
+event_index,onset,duration,predicted_label,quality,high_amplitude,flat_channels,peak_to_peak_uv
+0,4.1,4.1,left,high_amplitude,True,,332.99999999999994
+1,12.3,4.1,left,high_amplitude,True,,952.9999999999999
+2,20.5,4.1,right,high_amplitude,True,,330.0
+3,28.7,4.1,right,high_amplitude,True,,319.0
+4,36.9,4.1,left,high_amplitude,True,,318.99999999999994
+5,45.1,4.1,right,high_amplitude,True,,310.0
+6,53.3,4.1,left,high_amplitude,True,,280.0
+7,61.5,4.1,right,high_amplitude,True,,357.0
+8,69.7,4.1,right,high_amplitude,True,,285.0
+9,77.9,4.1,right,high_amplitude,True,,338.0
+10,86.1,4.1,left,high_amplitude,True,,322.0
+11,94.3,4.1,right,high_amplitude,True,,271.0
+12,102.5,4.1,left,high_amplitude,True,,313.0
+13,110.7,4.1,left,high_amplitude,True,,286.0
+14,118.9,4.1,left,high_amplitude,True,,312.0

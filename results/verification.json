@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "python": "3.12.11",
+  "model_sha256": "9bcd311dda91bda37cce7242270edcb9ad0f406fd1e55ae24b30586cf5f7b1af",
+  "matched_raw_edf_predictions": 450,
+  "recordings": 30,
+  "test_subjects_excluded_from_training": true,
+  "refitting": false
+}

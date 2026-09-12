@@ -15,7 +15,7 @@ def read(path):
     return json.loads(Path(path).read_text())
 
 
-def main():
+def build_scenes():
     test = read("results/test_summary.json")
     selected = read("artifacts/selection.json")["selected_model"]
     identity = read("results/identity.json")
@@ -28,8 +28,7 @@ def main():
         (16, "Can EEG predictions travel to a new person?", None,
          ["Left versus right imagined fist movement · PhysioNet EEGMMIDB",
           "40 fixed subjects: 30 for development, 10 held out until the model was frozen.",
-          f"Final result: {pct(test['mean_subject_balanced_accuracy'])} mean subject balanced accuracy.",
-          "This captioned demo summarizes measured results; no voiceover."],
+          f"Final result: {pct(test['mean_subject_balanced_accuracy'])} mean subject balanced accuracy."],
          "I built an offline classifier for imagined left versus right fist movement. The central question is whether a model works for a person whose recordings it has never seen. I selected forty subjects before fitting: thirty for development and ten held out until the model was frozen."),
         (22, "One shared pipeline, from raw EDF to prediction", None,
          ["Only imagery runs 4, 8, 12; T1 = left, T2 = right.",
@@ -73,6 +72,11 @@ def main():
           "Compare richer models under the same subject-disjoint evaluation.",
           "Code, trained model, trial predictions, audit, and report are included."],
          "Next I would separate cue direction from imagined hand, evaluate new recording days and devices, expand the cohort, and only then compare richer models under the same splits. The repository preserves the model, audit, predictions, and experiment log so every reported number can be checked.")]
+    return scenes
+
+
+def main():
+    scenes = build_scenes()
     out = Path("data/demo")
     out.mkdir(parents=True, exist_ok=True)
     script = ["# Demo narration / recording script", "", "Target: 2 minutes 40 seconds. The accompanying demo.mp4 is captioned and has no audio. Use this script as a starting point, adapt it to your own words, and rehearse before the live defense.", ""]
@@ -97,7 +101,6 @@ def main():
                 fig.text(.065,y,line,fontsize=fontsize,color="#253b44",family="DejaVu Sans")
                 y -= .047 if chart else .057
             y -= .025 if not chart else .01
-        fig.text(.055,.055,f"{i+1:02d} / {len(scenes):02d} · Captioned demonstration · Saved experimental results",fontsize=11,color="#62787d")
         frame = out / f"frame_{i:02d}.png"
         fig.savefig(frame,dpi=100)
         plt.close(fig)

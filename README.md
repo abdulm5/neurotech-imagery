@@ -64,14 +64,3 @@ Balanced accuracy averages left and right recall. The headline then averages tha
 Data: [PhysioNet EEG Motor Movement/Imagery Dataset v1.0.0](https://physionet.org/content/eegmmidb/1.0.0/), Gerwin Schalk, DOI [10.13026/C28G6P](https://doi.org/10.13026/C28G6P), licensed under Open Data Commons Attribution v1.0. Raw data are not redistributed here.
 
 Schalk et al., *BCI2000: A General-Purpose Brain-Computer Interface (BCI) System*, IEEE TBME 51(6):1034–1043 (2004), doi:10.1109/TBME.2004.827072. Goldberger et al., *PhysioBank, PhysioToolkit, and PhysioNet*, Circulation 101(23):e215–e220 (2000).
-
-## Demo
-
-[Watch the 2:40 captioned demo](docs/demo.mp4), or use [the narration script](docs/demo-script.md) to record your own explanation. The video has no audio. Regenerate it after the report and example prediction CSV exist:
-
-```bash
-uv run python -m neurotech.predict --edf data/raw/S040/S040R04.edf --output results/example_predictions.csv
-uv run python -m neurotech.demo
-```
-
-The video is built from the recorded results and real CLI predictions; it does not simulate performance. The implementation/operational notes are in [the work log](docs/work-log.md).

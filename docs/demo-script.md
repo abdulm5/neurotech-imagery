@@ -1,35 +1,51 @@
-# Demo narration / recording script
+# Recording script with slide cues
 
-Target: 2 minutes 40 seconds. The accompanying demo.mp4 is captioned and has no audio. Use this script as a starting point, adapt it to your own words, and rehearse before the live defense.
+Target: about **2 minutes 50 seconds**. Present the PowerPoint and advance manually. Read only the narration paragraphs. **Switch after the last sentence of each section.** Times are pacing guides, not exact deadlines.
 
-## 0:00–0:16 — Can EEG predictions travel to a new person?
+## Slide 1 | 0:00–0:22 | Can EEG predictions travel to a new person?
 
-I built an offline classifier for imagined left versus right fist movement. The central question is whether a model works for a person whose recordings it has never seen. I selected forty subjects before fitting: thirty for development and ten held out until the model was frozen.
+I built a classifier for imagined left versus right fist movement. I used forty people: thirty for development and ten held out for testing. The headline result was 53.6 percent balanced accuracy, averaged across those ten people. That is close to chance, so the main finding is limited generalization.
 
-## 0:16–0:38 — One shared pipeline, from raw EDF to prediction
+**At about 0:22, switch to slide 2.**
 
-The loader validates the run because the same annotation codes mean different movements in other runs. It extracts seconds one to four after each cue, references and filters each trial independently, and flags large amplitudes. Invalid events remain visible in the prediction output. Training and inference use the same preprocessing code.
+## Slide 2 | 0:22–0:46 | One shared pipeline, from raw EDF to prediction
 
-## 0:38–1:02 — The split changes what the score means
+I used imagery runs four, eight, and twelve, taking seconds one to four after each cue. I standardized and filtered each trial independently, and flagged large signals. One unexpected finding was that subject one hundred reports 128 hertz instead of 160, with longer task annotations. I documented this and checked sensitivity separately.
 
-I compared random trials, a later run from familiar people, and entirely unfamiliar people. These are different deployment questions. The final held-out score was 53.6%, with substantial variation across individuals. The interval resamples subjects, not trials. Differences between split strategies are descriptive, not a pure causal estimate of identity leakage.
+**At about 0:46, switch to slide 3.**
 
-## 1:02–1:26 — What else could explain the predictions?
+## Slide 3 | 0:46–1:13 | The split changes what the score means
 
-I checked a majority predictor, a metadata-only model, one hundred within-person and run label permutations, and subject identification across runs. Identity accuracy was 95.7%. That shows the features contain persistent person or recording information, but does not tell us exactly how much left-right decoding relies on it. The shuffled-label reference also cannot rule out visual cues or artifacts.
+These charts show why the evaluation matters. The spectral model scored 51.3 percent with random trials, 57.8 percent on a later run, and 53.3 percent on unfamiliar development subjects. The final test scored 53.6 percent, with a 95 percent interval from 48.3 to 60.2. That includes chance, so reliable performance on new people remains unproven.
 
-## 1:26–1:46 — Design decision: ship the spectral model
+**At about 1:13, switch to slide 4.**
 
-I compared log spectral power with logistic regression against four regularized common spatial patterns with shrinkage LDA. The preset selection rule chose spectral. I chose these small models over a neural network to preserve time for evaluation and make the transforms understandable. More model capacity would not fix a misleading split or cue confounding.
+## Slide 4 | 1:13–1:38 | What else could explain the predictions?
 
-## 1:46–2:06 — A working raw-EDF prediction interface
+I tested alternative explanations with majority labels, recording metadata, and one hundred label permutations. The first two controls were around fifty percent. The striking result was subject identification: 95.7 percent accuracy, versus 3.3 percent chance. The features clearly carry person or recording information. That does not prove the hand classifier relies on it.
 
-The deliverable includes a trained model and a raw EDF command. It returns a row for every task cue, including quality flags or unavailable status. I verified that the command agrees with the evaluation predictions, and that changing annotation class codes without changing onsets leaves predictions unchanged.
+**At about 1:38, switch to slide 5.**
 
-## 2:06–2:26 — Weakest point: cue direction and task are entangled
+## Slide 5 | 1:38–1:58 | Design decision: ship the spectral model
 
-The open-ended investigation compared central and occipital electrodes, scoring 54.4% and 53.9%. The visual target appears on the requested side, so cue and task are entangled. Regional predictability could reflect visual responses, volume conduction, or other signals. My weakest claim would be that the model decodes motor imagery alone; this protocol cannot establish that.
+Both candidate models scored about 53.3 percent on unfamiliar development subjects. Our preset rule selected the simpler spectral model unless CSP improved by a full percentage point. I chose these interpretable models over a neural network so I could spend more effort checking evaluation assumptions and explaining the results.
 
-## 2:26–2:40 — What I would do next
+**At about 1:58, switch to slide 6.**
 
-Next I would separate cue direction from imagined hand, evaluate new recording days and devices, expand the cohort, and only then compare richer models under the same splits. The repository preserves the model, audit, predictions, and experiment log so every reported number can be checked.
+## Slide 6 | 1:58–2:15 | A working raw-EDF prediction interface
+
+This command takes a raw EDF file and returns a prediction for each task cue, alongside quality flags. The examples shown are real outputs. All twelve tests passed, and a separate environment reproduced all four hundred and fifty held-out predictions exactly.
+
+**At about 2:15, switch to slide 7.**
+
+## Slide 7 | 2:15–2:35 | Weakest point: cue direction and task are entangled
+
+My weakest point is that visual cues could contribute to the predictions. Central electrodes scored 54.4 percent, while occipital electrodes scored 53.9 percent. The visual target appears on the same side as the imagined hand. These results cannot establish that the model decodes motor imagery alone.
+
+**At about 2:35, switch to slide 8.**
+
+## Slide 8 | 2:35–2:50 | What I would do next
+
+Next, I would separate visual cue direction from the imagined hand and test new recording days and devices. Then I would expand the cohort and compare richer models. The repository contains the code, model, and results needed to inspect the work.
+
+**At about 2:50, stop recording.**
